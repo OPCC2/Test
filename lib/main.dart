@@ -83,7 +83,7 @@ class _MenuItemsPageState extends State<MenuItemsPage> {
             final missingTable = snapshot.error is PostgrestException &&
                 (snapshot.error as PostgrestException).code == '42P01';
             return _MessageState(
-              icon: Icons.database_outlined,
+              icon: Icons.storage_outlined,
               title: missingTable
                   ? 'ยังไม่มีตาราง menu_items'
                   : 'ไม่สามารถโหลดข้อมูลได้',
