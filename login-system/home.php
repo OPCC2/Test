@@ -1,0 +1,8 @@
+<?php
+session_start();
+if (!isset($_SESSION["user_id"])) { header("Location: index.php"); exit; }
+$username = $_SESSION["username"];
+?>
+<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>หน้าหลัก</title>
+<style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8}.navbar{background:#007bff;color:#fff;padding:18px 30px;display:flex;justify-content:space-between;align-items:center}.navbar h2{margin:0}.logout{background:#fff;color:#007bff;text-decoration:none;padding:9px 16px;border-radius:6px;font-weight:bold}.container{max-width:900px;margin:40px auto;padding:20px}.welcome{background:#fff;padding:30px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,.08);text-align:center}.welcome h1{margin-top:0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:25px}.card{background:#fff;padding:25px;border-radius:12px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,.08)}@media(max-width:700px){.cards{grid-template-columns:1fr}.navbar{padding:15px}.container{margin:20px auto}}</style></head>
+<body><div class="navbar"><h2>ระบบของฉัน</h2><a class="logout" href="logout.php">ออกจากระบบ</a></div><div class="container"><div class="welcome"><h1>ยินดีต้อนรับ 👋</h1><p>คุณเข้าสู่ระบบในชื่อ <strong><?= htmlspecialchars($username) ?></strong></p></div><div class="cards"><div class="card"><h3>👤 โปรไฟล์</h3><p>ข้อมูลบัญชีผู้ใช้งาน</p></div><div class="card"><h3>📊 Dashboard</h3><p>ข้อมูลและสถิติของระบบ</p></div><div class="card"><h3>⚙️ ตั้งค่า</h3><p>จัดการการตั้งค่าบัญชี</p></div></div></div></body></html>
